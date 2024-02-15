@@ -1,0 +1,18 @@
+{% extends 'Clientes/home.html' %}
+
+{% block titulo %}
+    <h1 class="mb-5">Avatar</h1>
+{% endblock titulo %}
+    
+
+{% block contenido %}
+<form action="" method="post" enctype="multipart/form-data" style="margin: 10px 40%;">
+    {% csrf_token %}
+
+    <table>
+        {{ form.as_table }}
+    </table>
+    <br>
+    <input type="submit" value="Agregar Avatar">
+</form>
+{% endblock contenido %}
