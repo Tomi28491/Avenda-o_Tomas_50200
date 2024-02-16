@@ -12,11 +12,11 @@ class Pago(models.Model):
 
 class Producto(models.Model):
     producto = models.CharField(max_length=50)
-    cantidad = models.IntegerField()
+    imagen = models.ImageField(upload_to="productos")
     color = models.CharField(max_length=50)
     precio = models.FloatField()
     def __str__(self):
-        return f"{self.cantidad} {self.producto}, {self.color}"
+        return f"{self.imagen} {self.producto}, {self.color}"
     
 
 class Sucursal(models.Model):

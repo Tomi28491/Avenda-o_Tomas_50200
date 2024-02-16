@@ -18,40 +18,44 @@
             </td>
         </tr>
     </table>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Color</th>
-                <th>Precio U</th>
-            </tr>
-        </thead>
-        <tbody>
-    {% for p in producto_list  %}
-            <tr>
-                <td>{{ p.id }}</td>
-                <td>{{ p.producto }}</td>
-                <td>{{ p.cantidad }}</td>
-                <td>{{ p.color }}</td>
-                <td>{{ p.precio }}</td>
-                <td>
-                    <a
-                      href="{% url 'producto_update' p.id %}"   
-                      class="btn btn-warning"
-                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                      ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
-                    </a>
-                    <a
-                      href="{% url 'producto_delete' p.id %}"   
-                      class="btn btn-danger"
-                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                      ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
-                    </a>                
-                  </td>
-            </tr>
-    {% endfor %}
-        </tbody>
-    </table>
+    <br>
+    <div class="container">
+        <div class="row">
+            {% for p in producto_list  %}
+                <div class="col-sm-4 align-items-center card-deck">
+                    <!-- Sale badge-->
+                    <!-- Product image-->
+                    <img class="card-img-top" src="{{p.imagen.url}}" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{p.producto}}</h5>
+                            <!-- Product reviews-->
+                            <p>Color: {{p.color}}</p>
+                            <!-- Product price-->
+
+                            <p><b>${{p.precio}}</b></p>
+                            <a
+                                href="{% url 'producto_update' p.id %}"   
+                                class="btn btn-warning"
+                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                            </a>
+                            <a
+                                href="{% url 'producto_delete' p.id %}"   
+                                class="btn btn-danger"
+                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+               
+                    
+        </div>
+    </div>
+                   
 {% endblock contenido %}

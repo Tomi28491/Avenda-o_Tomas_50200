@@ -55,13 +55,13 @@ class ProductoList(LoginRequiredMixin, ListView):
 
 class ProductoCreate(LoginRequiredMixin, CreateView):
     model = Producto
-    fields = ['producto', 'cantidad', 'color', 'precio']
+    fields = ['producto', 'imagen', 'color', 'precio']
     success_url = reverse_lazy('productos')    
 
 
 class ProductoUpdate(LoginRequiredMixin, UpdateView):
     model = Producto
-    fields = ['producto', 'cantidad', 'color', 'precio']
+    fields = ['producto', 'imagen', 'color', 'precio']
     success_url = reverse_lazy('productos')    
 
 
