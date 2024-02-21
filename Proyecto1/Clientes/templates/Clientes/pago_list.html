@@ -21,7 +21,6 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Tarjeta de Credito</th>
                 <th>Tarjeta de Debito</th>
                 <th>Transferencia</th>
@@ -31,25 +30,40 @@
         <tbody>
     {% for p in pago_list  %}
             <tr>
-                <td>{{ p.id }}</td>
-                <td>{{ p.tarjetaCredito }}</td>
-                <td>{{ p.tarjetaDebito }}</td>
-                <td>{{ p.transferencia }}</td>
-                <td>{{ p.efectivo }}</td>
+                {% if p.tarjetaCredito %}
+                    <td>&#10003;</td>
+                {% else %}
+                    <td>&#10007;</td>
+                {% endif %}
+                {% if p.tarjetaDebito %}
+                    <td>&#10003;</td>
+                {% else %}
+                    <td>&#10007;</td>
+                {% endif %}
+                {% if p.transferencia %}
+                    <td>&#10003;</td>
+                {% else %}
+                    <td>&#10007;</td>
+                {% endif %}
+                {% if p.efectivo %}
+                    <td>&#10003;</td>
+                {% else %}
+                    <td>&#10007;</td>
+                {% endif %}
                 <td>
                     <a
-                      href="{% url 'mediosPago_update' p.id %}"   
-                      class="btn btn-warning"
-                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                      ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                    href="{% url 'mediosPago_update' p.id %}"   
+                    class="btn btn-warning"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
                     </a>
                     <a
-                      href="{% url 'mediosPago_delete' p.id %}"   
-                      class="btn btn-danger"
-                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                      ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                    href="{% url 'mediosPago_delete' p.id %}"   
+                    class="btn btn-danger"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
                     </a>                
-                  </td>
+                </td>
             </tr>
     {% endfor %}
         </tbody>

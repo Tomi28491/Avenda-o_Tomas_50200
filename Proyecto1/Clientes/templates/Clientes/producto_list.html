@@ -3,9 +3,53 @@
 
 {% block titulo %}
     <h1> Productos</h1>
+    <style>
+        .container {
+            position: relative;
+        }
+
+        input {
+            width: 500px;
+            padding: 10px;
+            padding-right: 35px;
+            border-radius: 5px 0 0 5px;
+            border: 0;
+            outline: none;
+            font-size: 1rem;
+        }
+        .barra{
+            background-color: crimson;
+            padding: 10px 15px;
+            position: absolute;
+            border: 0;
+            top: 0;
+            bottom: 0;
+            right: 1;
+            margin: auto;
+            border-radius: 0 5px 5px 0;
+            color: #fff;
+            cursor: pointer
+        }
+        .barra:hover {
+            background-color: darkred
+        }
+    </style>
+    <div class="container">
+        <form action="{% url 'buscar_productos' %}" method="get">
+            {% csrf_token %}
+            <input type="text" placeholder="Buscar Productos..." name="buscar" id="buscar">
+            <button class="barra" value="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>
 {% endblock titulo %}   
 
 {% block contenido %}
+    <style>
+        .card-img-top {
+            width: auto; /* Esto mantendrá la proporción de la imagen */
+            height: 200px; /* Largo deseado */
+        }
+    </style>
     <table>
         <tr>
             <td width="200"><h5>Agregar Producto</h5></td>
@@ -22,7 +66,7 @@
     <div class="container">
         <div class="row">
             {% for p in producto_list  %}
-                <div class="col-sm-4 align-items-center card-deck">
+                <div class="col-sm-4 align-items-center card">
                     <!-- Sale badge-->
                     <!-- Product image-->
                     <img class="card-img-top" src="{{p.imagen.url}}" alt="..." />

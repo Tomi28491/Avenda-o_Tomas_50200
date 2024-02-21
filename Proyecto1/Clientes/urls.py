@@ -12,7 +12,6 @@ urlpatterns = [
     path('producto_update/<int:pk>/', ProductoUpdate.as_view(), name="producto_update"),
     path('producto_delete/<int:pk>/', ProductoDelete.as_view(), name="producto_delete"),
 
-    path('buscar/', buscar, name="buscar"),
     path('buscar_productos/', buscar_productos, name="buscar_productos"),
 #--------------------------------------------------------------------------PAGOS
     path('mediosPago/', PagoList.as_view(), name="mediosPago"),
@@ -31,4 +30,7 @@ urlpatterns = [
 #--------------------------------------------------------------------------Editar Perfil
     path('editar_perfil/', editarPerfil, name="editar_perfil"),
     path('agregar_avatar/', agregarAvatar, name="agregar_avatar"),
+#--------------------------------------------------------------------------Editar Perfil
+    path('aboutMe', about_me, name="aboutMe"),
+
 ]

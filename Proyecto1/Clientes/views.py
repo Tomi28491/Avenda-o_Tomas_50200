@@ -12,11 +12,11 @@ from django.contrib.auth import authenticate, login
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+
 #--------------------------------------------------------------------------HOME
 def home(request):
     return render(request, "Clientes/home.html")
-
-#--------------------------------------------------------------------------PAGOS
+#--------------------------------------------------------------------------PAGOS    
 class PagoList(LoginRequiredMixin, ListView):
     model = Pago
 
@@ -35,10 +35,6 @@ class PagoDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('mediosPago')
 
 #--------------------------------------------------------------------------PRODUCTOS
-@login_required
-def buscar(request):
-    return render(request, "Clientes/buscar.html")
-
 @login_required
 def buscar_productos(request):
     if request.GET["buscar"]:
@@ -145,7 +141,7 @@ def editarPerfil(request):
             return render(request, "Clientes/home.html")
     else:
 
-        form = UserEditForm(instance=request.user)
+        form = UserEditForm(instance=usuario)
 
     return render(request, "Clientes/editarPerfil.html", {"form": form})
 
@@ -173,3 +169,7 @@ def agregarAvatar(request):
         form = AvatarForm()
 
     return render(request, "Clientes/agregarAvatar.html", {"form": form })   
+
+
+def about_me(request):
+    return render(request, "Clientes/aboutMe.html")

@@ -36,18 +36,18 @@
                 <td>{{ s.ciudad }}</td>
                 <td>
                     <a
-                      href="{% url 'sucursal_update' s.id %}"   
-                      class="btn btn-warning"
-                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                      ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                    href="{% url 'sucursal_update' s.id %}"   
+                    class="btn btn-warning"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
                     </a>
                     <a
-                      href="{% url 'sucursal_delete' s.id %}"   
-                      class="btn btn-danger"
-                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                      ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                    href="{% url 'sucursal_delete' s.id %}"   
+                    class="btn btn-danger"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
                     </a>                
-                  </td>
+                </td>
             </tr>
     {% endfor %}
         </tbody>
