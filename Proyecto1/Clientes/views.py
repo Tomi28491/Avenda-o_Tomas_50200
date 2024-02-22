@@ -22,7 +22,7 @@ class PagoList(LoginRequiredMixin, ListView):
 
 class PagoCreate(LoginRequiredMixin, CreateView):
     model = Pago
-    fields = ['tarjetaCredito', 'tarjetaDebito', 'transferencia', 'efectivo']
+    fields = ['sucursal', 'tarjetaCredito', 'tarjetaDebito', 'transferencia', 'efectivo']
     success_url = reverse_lazy('mediosPago')   
 
 class PagoUpdate(LoginRequiredMixin, UpdateView):
@@ -51,13 +51,13 @@ class ProductoList(LoginRequiredMixin, ListView):
 
 class ProductoCreate(LoginRequiredMixin, CreateView):
     model = Producto
-    fields = ['producto', 'imagen', 'color', 'precio']
+    fields = ['producto', 'imagen', 'color', 'precio', 'talle']
     success_url = reverse_lazy('productos')    
 
 
 class ProductoUpdate(LoginRequiredMixin, UpdateView):
     model = Producto
-    fields = ['producto', 'imagen', 'color', 'precio']
+    fields = ['producto', 'imagen', 'color', 'precio', 'talle']
     success_url = reverse_lazy('productos')    
 
 
@@ -117,7 +117,7 @@ def register(request):
         if miForm.is_valid():
             usuario = miForm.cleaned_data.get("username")
             miForm.save()
-            return redirect(reverse_lazy('home'))
+            return render(request, "Clientes/registro_exitoso.html")
 
     else:    
         miForm = RegistroForm()

@@ -1,0 +1,16 @@
+{% extends 'Clientes/home.html' %}
+
+{% block titulo %}
+    <h1> Buscar Productos</h1>
+{% endblock titulo %}   
+
+
+{% block contenido %}
+<form action="{% url 'buscar_productos' %}" method="get">
+    {% csrf_token %}
+
+    <p>Producto a buscar: <input type="text" name="buscar" id="buscar"></p>
+    <input type="submit" value="Buscar">
+</form>
+{% endblock contenido %}
+    

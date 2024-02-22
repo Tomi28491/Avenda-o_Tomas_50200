@@ -1,0 +1,61 @@
+# Nombre de Proyecto: Proyecto1
+# Alumno: Avendaño Tomas 
+# Fecha: 22/02/2024
+# Versión: Proyecto Final v9 
+
+# Aplicacion que permite publicar productos de indumentaria
+
+- Los modelos que presenta esta aplicacion son:
+  - Producto
+  - Sucursal
+  - Pago
+
+- Orden de prueba de la aplicacion 
+
+  - Existe una pestaña de home para estar en el menu principal
+  - Crear cuenta: http://localhost:8000/Clientes/register/
+  - Complete el formulario para crear un usuario
+    Nombre de Usuario:
+    Email:
+    Contraseña:
+    Confirmar Contraseña:
+    Nombre:
+    Apellido:
+
+  - Una vez creado el usuario ya puedes iniciar sesion y visualizar los modelos
+  - Iniciar Sesion: http://localhost:8000/Clientes/login/
+  - Complete el formulario para iniciar sesion:
+    Nombre de Usuario:
+    Contraseña:
+
+  - una vez iniciado sesion apareceran varias pestañas
+    - Productos: http://localhost:8000/Clientes/productos/
+      - Existe una barra de busqueda para filtrar productos
+      - Dentro podes realizar CRUD:
+        - Agregar un nuevo producto: http://localhost:8000/Clientes/producto_create/
+        - Editar un producto creado: http://localhost:8000/Clientes/producto_update/"id del producto"/
+        - Eliminar un producto creado: http://localhost:8000/Clientes/producto_delete/"id del producto"/
+      
+    - Sucursales: http://localhost:8000/Clientes/sucursal/
+      - Dentro podes realizar CRUD:
+        - Agregar una nueva sucursal: http://localhost:8000/Clientes/sucursal_create/
+        - Editar una sucursal creada: http://localhost:8000/Clientes/sucursal_update/"id del producto"/
+        - Eliminar una sucursal creada: http://localhost:8000/Clientes/sucursal_delete/"id del producto"/
+
+    - Medios de Pago: http://localhost:8000/Clientes/mediosPago/
+      - Dentro podes realizar CRUD:
+        - Agregar un nuevo medio de pago: http://localhost:8000/Clientes/mediosPago_create/ ¡¡¡(Aclaracion, primero es necesario tener al menos una sucursal creada para vincularla con el metodo de pago)!!!
+        - Editar un medio de pago creado: http://localhost:8000/Clientes/mediosPago_update/"id del producto"/
+        - Eliminar un medio de pago creado: http://localhost:8000/Clientes/mediosPago_delete/"id del producto"/
+
+    - Acerca de mi: http://localhost:8000/Clientes/aboutMe (Esta pestaña hablo un poco de mi)
+    
+    - Avatar: http://localhost:8000/Clientes/agregar_avatar/ (por defecto te carga un avatar generico, pero es posible cambiarlo)
+
+    - Editar Perfil: http://localhost:8000/Clientes/editar_perfil/ (En esa seccion podras modificar los datos de tu perfil, nombre, contraseña, etc.)
+     
+    - Cerrar Sesion: http://localhost:8000/Clientes/logout/ (desloguea la cuenta iniciada)
+
+Usuario Administrador para poder probar el funcionamiento de la aplicacion web:
+  - Usuario: admin
+  - Contraseña: 44828993Admin

@@ -26,23 +26,23 @@
                     {% if user.is_authenticated %}
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'productos' %}">Productos</a></li>    
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'sucursal' %}">Sucursal</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'sucursal' %}">Sucursales</a></li>
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'mediosPago' %}">Medios de Pago</a></li>
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'aboutMe' %}">Acerca de mi</a></li>
                         </ul>
                         <a  href="{% url 'agregar_avatar' %}" ><img src="{{ request.session.avatar }}" height="40px" weight="40px"/></a>
-                        <p style="color:green">Hola {{user.first_name}}!</p>
-                        <a class="btn btn-outline-primary" href="{% url 'editar_perfil' %}">Editar Perfil</a>
+                        <a style="color:green">Hola {{user.first_name}}!</a>
+                        <a class="btn btn-outline-info" href="{% url 'editar_perfil' %}">Editar Perfil</a>
                         <form action="{% url 'logout' %}" method="post" class="d-flex">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+                            <button type="submit" class="btn btn-outline-danger">Cerrar Sesión</button>
                         </form>
                     {% else %}
                         <form class="d-flex">
-                            <a href="{% url 'login' %}" class="btn btn-outline-dark">
+                            <a href="{% url 'login' %}" class="btn btn-outline-info">
                                 Iniciar Sesion
                             </a>
-                            <a href="{% url 'register' %}" class="btn btn-success">
+                            <a href="{% url 'register' %}" class="btn btn-outline-success">
                                 Registrar
                             </a>
                         </form>

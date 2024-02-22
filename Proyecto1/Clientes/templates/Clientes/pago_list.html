@@ -21,6 +21,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th>Sucursal</th>
                 <th>Tarjeta de Credito</th>
                 <th>Tarjeta de Debito</th>
                 <th>Transferencia</th>
@@ -30,6 +31,7 @@
         <tbody>
     {% for p in pago_list  %}
             <tr>
+                <td>{{p.sucursal}}</td>
                 {% if p.tarjetaCredito %}
                     <td>&#10003;</td>
                 {% else %}
