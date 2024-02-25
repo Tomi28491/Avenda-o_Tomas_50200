@@ -4,5 +4,6 @@ from .models import *
 
 admin.site.register(Pago)
 admin.site.register(Producto)
+admin.site.register(Accesorio)
 admin.site.register(Sucursal)
 

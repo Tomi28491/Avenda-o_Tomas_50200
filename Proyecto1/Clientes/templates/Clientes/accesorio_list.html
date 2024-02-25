@@ -1,0 +1,102 @@
+{% extends 'Clientes/home.html' %}
+
+
+{% block titulo %}
+    <h1> Accesorios</h1>
+    <style>
+        .container {
+            position: relative;
+        }
+
+        input {
+            width: 500px;
+            padding: 10px;
+            padding-right: 35px;
+            border-radius: 5px 0 0 5px;
+            border: 0;
+            outline: none;
+            font-size: 1rem;
+        }
+        .barra{
+            background-color: crimson;
+            padding: 10px 15px;
+            position: absolute;
+            border: 0;
+            top: 0;
+            bottom: 0;
+            right: 1;
+            margin: auto;
+            border-radius: 0 5px 5px 0;
+            color: #fff;
+            cursor: pointer
+        }
+        .barra:hover {
+            background-color: darkred
+        }
+    </style>
+    <div class="container">
+        <form action="{% url 'buscar_accesorios' %}" method="get">
+            {% csrf_token %}
+            <input type="text" placeholder="Buscar Accesorios..." name="buscar" id="buscar">
+            <button class="barra" value="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>
+{% endblock titulo %}   
+
+{% block contenido %}
+    <style>
+        .card-img-top {
+            width: auto; 
+            height: 200px;
+        }
+    </style>
+    <table>
+        <tr>
+            <td width="200"><h5>Agregar Accesorio</h5></td>
+            <td>
+                <a
+                href="{% url 'accesorio_create' %}"
+                class="btn btn-primary btn-sm"
+                ><i class="fa fa-plus fa-lg" title="Crear"> </i>
+                </a>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <div class="container">
+        <div class="row">
+            {% for a in accesorio_list  %}
+                <div class="col-sm-4 align-items-center card">
+                    <!-- Sale badge-->
+                    <!-- Product image-->
+                    <img class="card-img-top" src="{{a.imagen.url}}" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{a.producto}}</h5>
+
+                            <p><b>${{a.precio}}</b></p>
+                            <a
+                                href="{% url 'accesorio_update' a.id %}"   
+                                class="btn btn-warning"
+                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                            </a>
+                            <a
+                                href="{% url 'accesorio_delete' a.id %}"   
+                                class="btn btn-danger"
+                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+               
+                    
+        </div>
+    </div>
+                   
+{% endblock contenido %}

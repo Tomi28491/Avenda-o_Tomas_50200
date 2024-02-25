@@ -7,6 +7,7 @@
 
 - Los modelos que presenta esta aplicacion son:
   - Producto
+  - Accesorio
   - Sucursal
   - Pago
 
@@ -35,6 +36,13 @@
         - Agregar un nuevo producto: http://localhost:8000/Clientes/producto_create/
         - Editar un producto creado: http://localhost:8000/Clientes/producto_update/"id del producto"/
         - Eliminar un producto creado: http://localhost:8000/Clientes/producto_delete/"id del producto"/
+      
+     - Accesorios: http://localhost:8000/Clientes/accesorios/
+      - Existe una barra de busqueda para filtrar accesorios
+      - Dentro podes realizar CRUD:
+        - Agregar un nuevo producto: http://localhost:8000/Clientes/accesorio_create/
+        - Editar un producto creado: http://localhost:8000/Clientes/accesorio_update/"id del producto"/
+        - Eliminar un producto creado: http://localhost:8000/Clientes/accesorio_delete/"id del producto"/
       
     - Sucursales: http://localhost:8000/Clientes/sucursal/
       - Dentro podes realizar CRUD:

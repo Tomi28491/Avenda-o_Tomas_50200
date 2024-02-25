@@ -11,8 +11,13 @@ urlpatterns = [
     path('producto_create/', ProductoCreate.as_view(), name="producto_create"),
     path('producto_update/<int:pk>/', ProductoUpdate.as_view(), name="producto_update"),
     path('producto_delete/<int:pk>/', ProductoDelete.as_view(), name="producto_delete"),
-
     path('buscar_productos/', buscar_productos, name="buscar_productos"),
+#--------------------------------------------------------------------------ACCESORIOS
+    path('accesorios/', AccesorioList.as_view(), name="accesorios"),
+    path('accesorio_create/', AccesorioCreate.as_view(), name="accesorio_create"),
+    path('accesorio_update/<int:pk>/', AccesorioUpdate.as_view(), name="accesorio_update"),
+    path('accesorio_delete/<int:pk>/', AccesorioDelete.as_view(), name="accesorio_delete"),
+    path('buscar_accesorios/', buscar_accesorios, name="buscar_accesorios"),
 #--------------------------------------------------------------------------PAGOS
     path('mediosPago/', PagoList.as_view(), name="mediosPago"),
     path('mediosPago_create/', PagoCreate.as_view(), name="mediosPago_create"),

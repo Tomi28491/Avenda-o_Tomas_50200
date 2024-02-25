@@ -34,7 +34,7 @@ class PagoDelete(LoginRequiredMixin, DeleteView):
     model = Pago
     success_url = reverse_lazy('mediosPago')
 
-#--------------------------------------------------------------------------PRODUCTOS
+#--------------------------------------------------------------------------PRODUCTO
 @login_required
 def buscar_productos(request):
     if request.GET["buscar"]:
@@ -64,7 +64,36 @@ class ProductoUpdate(LoginRequiredMixin, UpdateView):
 class ProductoDelete(LoginRequiredMixin, DeleteView):
     model = Producto
     success_url = reverse_lazy('productos')
+#--------------------------------------------------------------------------ACCESORIO
+@login_required
+def buscar_accesorios(request):
+    if request.GET["buscar"]:
+        patron = request.GET["buscar"]
+        accesorios = Accesorio.objects.filter(producto__icontains=patron)
+        contexto = {"accesorio_list": accesorios }
+        return render(request, "Clientes/accesorio_list.html", contexto)
+    return HttpResponse("No se ingresaron patrones de busqueda")
 
+
+class AccesorioList(LoginRequiredMixin, ListView):
+    model = Accesorio
+
+
+class AccesorioCreate(LoginRequiredMixin, CreateView):
+    model = Accesorio
+    fields = ['producto', 'imagen', 'precio']
+    success_url = reverse_lazy('accesorios')    
+
+
+class AccesorioUpdate(LoginRequiredMixin, UpdateView):
+    model = Accesorio
+    fields = ['producto', 'imagen', 'precio']
+    success_url = reverse_lazy('accesorios')    
+
+
+class AccesorioDelete(LoginRequiredMixin, DeleteView):
+    model = Accesorio
+    success_url = reverse_lazy('accesorios')
 #--------------------------------------------------------------------------SUCURSAL
 class SucursalList(LoginRequiredMixin, ListView):
     model = Sucursal

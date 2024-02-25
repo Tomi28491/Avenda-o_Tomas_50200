@@ -25,7 +25,8 @@
                 <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Inicio</a>
                     {% if user.is_authenticated %}
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'productos' %}">Productos</a></li>    
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'productos' %}">Productos</a></li>   
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'accesorios' %}">Accesorios</a></li>    
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'sucursal' %}">Sucursales</a></li>
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'mediosPago' %}">Medios de Pago</a></li>
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'aboutMe' %}">Acerca de mi</a></li>

@@ -22,6 +22,7 @@ class Pago(models.Model):
     def __str__(self):
         return f'Medio de Pago {self.id}'
 
+
 class Producto(models.Model):
     producto = models.CharField(max_length=30)
     imagen = models.ImageField(upload_to="productos/", blank=True, null=True)
@@ -32,10 +33,17 @@ class Producto(models.Model):
         return f" {self.producto}, {self.color}"
     
 
+class Accesorio(models.Model):
+    producto = models.CharField(max_length=30)
+    imagen = models.ImageField(upload_to="accesorios/")
+    precio = models.FloatField()
+    def __str__(self):
+        return f" {self.producto}"
+    
+
 class Avatar(models.Model):
     imagen = models.ImageField(upload_to="avatares")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.user} {self.imagen}"
-    
