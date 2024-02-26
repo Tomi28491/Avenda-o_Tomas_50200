@@ -167,7 +167,7 @@ def editarPerfil(request):
             user.last_name = informacion['last_name']
             user.set_password(informacion['password1'])
             user.save()
-            return render(request, "Clientes/home.html")
+            return render(request, "Clientes/edicion_exitoso.html")
     else:
 
         form = UserEditForm(instance=usuario)
