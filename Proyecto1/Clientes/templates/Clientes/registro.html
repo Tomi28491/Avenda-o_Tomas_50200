@@ -6,13 +6,15 @@
 {% endblock titulo %}   
 
 {% block contenido %}
-<form action="" method="post" style="margin: 10px 26%;">
-    {% csrf_token %}
+    <section class="py-5 ">
+        <form action="" method="post" style="margin: 10px 26%;">
+            {% csrf_token %}
 
-    <table>
-        {{ form.as_table }}
-    </table>
-    
-    <input type="submit" value="Enviar">
-</form>
+            <table>
+                {{ form.as_table }}
+            </table>
+            
+            <input type="submit" value="Enviar">
+        </form>
+    </section>
 {% endblock contenido %}

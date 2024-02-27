@@ -10,6 +10,7 @@
         <tr>
             <td width="200"><h5>Agregar Medio de Pago</h5></td>
             <td>
+                <!-- CREAR MEDIO DE PAGO-->
                 <a
                 href="{% url 'mediosPago_create' %}"
                 class="btn btn-primary btn-sm"
@@ -53,12 +54,14 @@
                     <td>&#10007;</td>
                 {% endif %}
                 <td>
+                    <!-- EDITAR MEDIO DE PAGO-->
                     <a
                     href="{% url 'mediosPago_update' p.id %}"   
                     class="btn btn-warning"
                     style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                     ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
                     </a>
+                    <!-- ELIMINAR MEDIO DE PAGO-->
                     <a
                     href="{% url 'mediosPago_delete' p.id %}"   
                     class="btn btn-danger"

@@ -1,7 +1,7 @@
 # Nombre de Proyecto: Proyecto1
 # Alumno: Avendaño Tomas 
 # Fecha: 22/02/2024
-# Versión: Proyecto Final v11 
+# Versión: Proyecto Final v12 
 
 # Aplicacion que permite publicar productos de indumentaria
 
@@ -67,3 +67,5 @@
 Usuario Administrador para poder probar el funcionamiento de la aplicacion web:
   - Usuario: admin
   - Contraseña: 44828993Admin
+
+Video explicativo de uso: https://youtu.be/3sYVURVMyoM

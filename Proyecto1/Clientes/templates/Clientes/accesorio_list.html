@@ -34,6 +34,7 @@
             background-color: darkred
         }
     </style>
+    <!-- BARRA DE BUSQUEDA-->
     <div class="container">
         <form action="{% url 'buscar_accesorios' %}" method="get">
             {% csrf_token %}
@@ -54,6 +55,7 @@
         <tr>
             <td width="200"><h5>Agregar Accesorio</h5></td>
             <td>
+                <!-- CREAR ACCESORIO-->
                 <a
                 href="{% url 'accesorio_create' %}"
                 class="btn btn-primary btn-sm"
@@ -67,22 +69,23 @@
         <div class="row">
             {% for a in accesorio_list  %}
                 <div class="col-sm-4 align-items-center card">
-                    <!-- Sale badge-->
-                    <!-- Product image-->
+                    <!-- IMAGEN DEL ACCESORIO-->
                     <img class="card-img-top" src="{{a.imagen.url}}" alt="..." />
-                    <!-- Product details-->
+                    <!-- DETALLES DEL ACCESORIO-->
                     <div class="card-body p-4">
                         <div class="text-center">
-                            <!-- Product name-->
+                            <!-- NOMBRE DEL ACCESORIO-->
                             <h5 class="fw-bolder">{{a.producto}}</h5>
-
+                            <!-- PRECIO DEL ACCESORIO-->
                             <p><b>${{a.precio}}</b></p>
+                            <!-- EDITAR ACCESORIO-->
                             <a
                                 href="{% url 'accesorio_update' a.id %}"   
                                 class="btn btn-warning"
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                                 ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
                             </a>
+                            <!-- ELIMINAR ACCESORIO-->
                             <a
                                 href="{% url 'accesorio_delete' a.id %}"   
                                 class="btn btn-danger"

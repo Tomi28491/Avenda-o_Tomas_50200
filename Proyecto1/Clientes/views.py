@@ -16,7 +16,7 @@ from django.contrib.auth.decorators import login_required
 #--------------------------------------------------------------------------HOME
 def home(request):
     return render(request, "Clientes/home.html")
-#--------------------------------------------------------------------------PAGOS    
+#--------------------------------------------------------------------------CRUD PAGO    
 class PagoList(LoginRequiredMixin, ListView):
     model = Pago
 
@@ -34,7 +34,7 @@ class PagoDelete(LoginRequiredMixin, DeleteView):
     model = Pago
     success_url = reverse_lazy('mediosPago')
 
-#--------------------------------------------------------------------------PRODUCTO
+#--------------------------------------------------------------------------CRUD PRODUCTO
 @login_required
 def buscar_productos(request):
     if request.GET["buscar"]:
@@ -64,7 +64,7 @@ class ProductoUpdate(LoginRequiredMixin, UpdateView):
 class ProductoDelete(LoginRequiredMixin, DeleteView):
     model = Producto
     success_url = reverse_lazy('productos')
-#--------------------------------------------------------------------------ACCESORIO
+#--------------------------------------------------------------------------CRUD ACCESORIO
 @login_required
 def buscar_accesorios(request):
     if request.GET["buscar"]:
@@ -94,7 +94,7 @@ class AccesorioUpdate(LoginRequiredMixin, UpdateView):
 class AccesorioDelete(LoginRequiredMixin, DeleteView):
     model = Accesorio
     success_url = reverse_lazy('accesorios')
-#--------------------------------------------------------------------------SUCURSAL
+#--------------------------------------------------------------------------CRUD SUCURSAL
 class SucursalList(LoginRequiredMixin, ListView):
     model = Sucursal
 
@@ -116,7 +116,7 @@ class SucursalDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('sucursal')
 
 
-#--------------------------------------------------------------------------Login, Registro  
+#--------------------------------------------------------------------------LOGIN, REGISTRO  
 def login_request(request):
     if request.method == "POST":
         usuario = request.POST['username']
@@ -153,7 +153,7 @@ def register(request):
 
     return render(request, "Clientes/registro.html", {"form": miForm })
 
-
+#--------------------------------------------------------------------------EDITAR PERFIL
 @login_required
 def editarPerfil(request):
     usuario = request.user
@@ -174,7 +174,7 @@ def editarPerfil(request):
 
     return render(request, "Clientes/editarPerfil.html", {"form": form})
 
-
+#--------------------------------------------------------------------------CREAR AVATAR
 @login_required
 def agregarAvatar(request):
     if request.method == "POST":
@@ -183,6 +183,7 @@ def agregarAvatar(request):
             usuario = User.objects.get(username=request.user)
 
             avatarViejo = Avatar.objects.filter(user=usuario)
+
             if len(avatarViejo) > 0:
                 for i in range(len(avatarViejo)):
                     avatarViejo[i].delete()
@@ -199,6 +200,6 @@ def agregarAvatar(request):
 
     return render(request, "Clientes/agregarAvatar.html", {"form": form })   
 
-
+#--------------------------------------------------------------------------ACERCA DE MI
 def about_me(request):
     return render(request, "Clientes/aboutMe.html")

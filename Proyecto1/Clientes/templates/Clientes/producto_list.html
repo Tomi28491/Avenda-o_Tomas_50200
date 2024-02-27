@@ -34,6 +34,7 @@
             background-color: darkred
         }
     </style>
+    <!-- BARRA DE BUSQUEDA-->
     <div class="container">
         <form action="{% url 'buscar_productos' %}" method="get">
             {% csrf_token %}
@@ -54,6 +55,7 @@
         <tr>
             <td width="200"><h5>Agregar Producto</h5></td>
             <td>
+                <!-- CREAR PRODUCTO-->
                 <a
                 href="{% url 'producto_create' %}"
                 class="btn btn-primary btn-sm"
@@ -67,26 +69,28 @@
         <div class="row">
             {% for p in producto_list  %}
                 <div class="col-sm-4 align-items-center card">
-                    <!-- Sale badge-->
-                    <!-- Product image-->
+                    <!-- IMAGEN DEL PRODUCTO-->
                     <img class="card-img-top" src="{{p.imagen.url}}" alt="..." />
-                    <!-- Product details-->
+                    <!-- DETALLE DEL PRODUCTO-->
                     <div class="card-body p-4">
                         <div class="text-center">
-                            <!-- Product name-->
+                            <!-- NOMBRE DEL PRODUCTO-->
                             <h5 class="fw-bolder">{{p.producto}}</h5>
-                            <!-- Product reviews-->
+                            <!-- COLOR DEL PRODUCTO-->
                             <p>Color: {{p.color}}</p>
+                            <!-- TALLE DEL PRODUCTO-->
                             <p>Talle: {{p.talle}}</p>
-                            <!-- Product price-->
+                            <!-- PRECIO DEL PRODUCTO-->
 
                             <p><b>${{p.precio}}</b></p>
+                            <!-- EDITAR PRODUCTO-->
                             <a
                                 href="{% url 'producto_update' p.id %}"   
                                 class="btn btn-warning"
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                                 ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
                             </a>
+                            <!-- ELIMINAR PRODUCTO-->
                             <a
                                 href="{% url 'producto_delete' p.id %}"   
                                 class="btn btn-danger"
